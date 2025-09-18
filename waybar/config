@@ -1,0 +1,53 @@
+{
+  "position": "bottom",
+  "modules-center": ["clock"],
+  "modules-right": ["network", "pulseaudio", "battery"],
+
+  "clock": {
+    "interval": 60,
+    "format": "<span foreground='#C6AAE8' size='13000'> </span> {:%a %d %I:%M %p}",
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+  },
+
+  "battery": {
+    "interval": 30,
+    "states": {
+      "warning": 30,
+      "critical": 15
+    },
+    "format": "<span size='13000' foreground='#B1E3AD'>{icon} </span> {capacity}%",
+    "format-warning": "<span size='13000' foreground='#B1E3AD'>{icon} </span> {capacity}%",
+    "format-critical": "<span size='13000' foreground='#E38C8F'>{icon} </span> {capacity}%",
+    "format-charging": "<span size='13000' foreground='#B1E3AD'> </span> {capacity}%",
+    "format-plugged": "<span size='13000' foreground='#B1E3AD'> </span> {capacity}%",
+    "format-alt": "<span size='13000' foreground='#B1E3AD'>{icon} </span> {time}",
+    "format-full": "<span size='13000' foreground='#B1E3AD'> </span> {capacity}%",
+    "format-icons": ["", "", "", "", ""],
+    "tooltip-format": "{time}"
+  },
+
+  "network": {
+    "interval": 30,
+    "format-wifi": "<span size='13000' foreground='#F2CECF'> </span> {essid}",
+    "format-ethernet": "<span size='13000' foreground='#F2CECF'>󰤭 </span> Disconnected",
+    "format-linked": "{ifname} (No IP) ",
+    "format-disconnected": "<span size='13000' foreground='#F2CECF'> </span> Disconnected",
+    "tooltip-format-wifi": "Signal Strength: {signalStrength}%"
+  },
+
+  "pulseaudio": {
+    "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+    "format": "<span size='13000' foreground='#EBDDAA'>{icon} </span> {volume}%",
+    "format-muted": "<span size='14000' foreground='#EBDDAA'> </span> Muted",
+    "format-icons": {
+      "headphone": "",
+      "hands-free": "",
+      "headset": "",
+      "phone": "",
+      "portable": "",
+      "car": "",
+      "default": ["", ""]
+    }
+  }
+}
+
